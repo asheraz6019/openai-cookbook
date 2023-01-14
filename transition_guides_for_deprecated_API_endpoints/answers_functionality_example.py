@@ -37,7 +37,8 @@ def semantic_search(
             ...
         ]
     """
-    assert (examples is None) ^ (file_id is None)  # xor
+    if not (examples is None) ^ (file_id is None):
+        raise AssertionError
 
     if file_id is not None:
         # This is where you'd do an elastic search call.  Since there isn't an example of this
